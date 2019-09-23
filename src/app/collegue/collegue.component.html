@@ -1,0 +1,60 @@
+<div class = "row">
+    <div class = "col-4">
+        <img [src]="col.photoUrl"  height="352" width="470">
+    </div>
+    <div class = col-8>
+        <div class = "row">
+            <div class = col-6>Matricule :</div>
+            <div class = col-6>{{col.matricule}}</div>
+        </div>
+        <div class = "row">
+            <div class = col-6>Nom :</div>
+            <div class = col-6>{{col.nom | uppercase}}</div>
+        </div>
+        <div class = "row">
+            <div class = col-6>Prénom :</div>
+            <div class = col-6>{{col.prenom}}</div>
+        </div>
+        <div class = "row">
+            <div class = col-6 >Date de naissance :</div>
+            <div class = col-6 *ngIf="col.modifier==false">{{col.dateDeNaissance | date:'dd/MM/yyyy'}}</div>
+            <div class = col-6 *ngIf="col.modifier==true"><input type="text"> </div>
+        </div>
+        <div class = "row">
+            <div class = col-6>Email :</div>
+            <div class = col-6 *ngIf="col.modifier==false">{{col.email}}</div>
+            <div class = col-6 *ngIf="col.modifier==true"><input type="text"> </div>
+        </div>
+    </div>
+</div>
+<div class = "row">
+
+    <div class = "col-4"></div>
+    <div class = "col-4"><button (click)="creer()"> Créer un nouveau collègue </button></div>
+    <div class = "col-4">
+        <button *ngIf="col.modifier==false" (click)="modifier()"> Modifier</button>
+        <button *ngIf="col.modifier==true" >Valider</button>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

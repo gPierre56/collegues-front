@@ -1,0 +1,19 @@
+<div class = "row">
+<div class="col-5">
+    <div class="col-4" style="display: inline">
+    <p >Recherche par nom </p>
+    </div>
+    <div class="col-5">
+<input type = "text">
+    </div>
+    <div class="col-3">
+<button (click)="afficher()">Rechercher</button>
+    </div>
+</div>
+</div>
+<div class="row" *ngIf="affichage==true">
+    <ul>
+        <li *ngFor="let matricule of listeMatricules">{{matricule}}</li>
+    </ul>
+
+</div>
