@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatriculeMock} from "../mock/matricules.mock";
+import {DataService} from "../services/data.service";
 
 @Component({
   selector: 'app-recherche-collegue-par-nom',
@@ -12,7 +13,7 @@ export class RechercheCollegueParNomComponent implements OnInit {
   listeMatricules: Array<string>;
 
   constructor() {
-    this.listeMatricules = new MatriculeMock().matricules;
+    this.listeMatricules = new DataService().rechercherParNom('x');
   }
 
   afficher() {

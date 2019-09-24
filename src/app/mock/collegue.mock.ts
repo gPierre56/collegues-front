@@ -11,8 +11,7 @@ export class CollegueMock {
         this.collegue.prenom = 'John';
         this.collegue.dateDeNaissance = new Date();
         this.collegue.email = 'john-doe@gmail.com';
-        this.collegue.photoUrl = 'https://i.guim.co.uk/img/media/efc29bac50266f2385531697d3ec582e0a333347/0_100_3000_1800/' +
-            'master/3000.jpg?width=620&quality=85&auto=format&fit=max&s=3ec1342120ae8f0719bac90c6e4dd8fe';
+        this.collegue.photoUrl = 'https://www.challenges.fr/assets/img/2018/09/11/cover-r4x3w1000-5b978f41e1edf-sipa-ap22227656-000003.jpg';
         this.collegue.modifier = false;
 
     }
