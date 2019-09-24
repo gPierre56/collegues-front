@@ -2,9 +2,9 @@
     <div class = "col-4">
         <img class="img-thumbnail" [src]="col.photoUrl"  height="352" width="470">
     </div>
-    <div class = "col-8 table table-primary" >
+    <div class = "col-8 " >
         <div class = "row">
-            <div class = col-6>Matricule :</div>
+            <div class = col-6><p class="font-weight-bold"> Matricule :</p></div>
             <div class = col-6>{{col.matricule}}</div>
         </div>
         <div class = "row">
@@ -30,9 +30,9 @@
 <div class = "row">
 
     <div class = "col-4"></div>
-    <div class = "col-4"><button (click)="creer()"> Créer un nouveau collègue </button></div>
+    <div class = "col-4"><button class="btn-success" (click)="creer()"> Créer un nouveau collègue </button></div>
     <div class = "col-4">
-        <button *ngIf="col.modifier==false" (click)="modifier()"> Modifier</button>
+        <button class="btn-success" *ngIf="col.modifier==false" (click)="modifier()"> Modifier</button>
         <button *ngIf="col.modifier==true" >Valider</button>
     </div>
 
