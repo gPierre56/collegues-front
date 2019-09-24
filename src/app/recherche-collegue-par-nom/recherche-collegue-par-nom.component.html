@@ -1,16 +1,20 @@
-<div class = "row">
-<div class="col-5">
-    <div class="col-4" style="display: inline">
-    <h2 class="text-center">Recherche par nom</h2>
+<div class="row">
+    <div class="col mt-4">
+        <div class = "row">
+        <div class="col-4" style="display: inline">
+            <h2 class="text-success">Recherche par nom :</h2>
+        </div>
+        <div class="col-4">
+            <input type="text" class="align-content-center mt-2">
+        </div>
+        <div class="col-4">
+            <button class="btn-success mt-2" (click)="afficher()">Rechercher</button>
+        </div>
+        </div>
     </div>
-    <div class="col-5">
-<input type = "text">
-    </div>
-    <div class="col-3">
-<button (click)="afficher()">Rechercher</button>
-    </div>
+
 </div>
-</div>
+
 <div class="row" *ngIf="affichage==true">
     <ul>
         <li *ngFor="let matricule of listeMatricules">{{matricule}}</li>

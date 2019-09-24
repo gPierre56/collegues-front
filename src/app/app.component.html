@@ -1,13 +1,19 @@
-<div class="row-3">
-<h1 class = "text-info text-center" >Collegues front</h1>
+<div class="row mt-4">
+    <div class="col-4">
+    </div>
+    <div class="col-4">
+        <img class="img-fluid" src="assets/images/collegues_front.png" width="80%">
+    </div>
+    <div class="col-4">
+    </div>
 </div>
-<div class = "row">
-    <div class="col-3">
+<div class="row mt-4">
+    <div class="col">
         <app-recherche-collegue-par-nom></app-recherche-collegue-par-nom>
     </div>
 
-    <div class="col-9">
-        <app-collegue [col] = "col"> </app-collegue>
+    <div class="col">
+        <app-collegue [col]="col"></app-collegue>
     </div>
 
 </div>
