@@ -18,11 +18,11 @@ export class CollegueComponent implements OnInit, OnDestroy {
   constructor(private _data:DataService) {
 
   }
-  modifier: Boolean;
+
 
   modifierCollegue() {
     console.log('Modification du collègue');
-    this.modifier = true;
+    this.col.modifier = true;
   }
 
   creer() {

@@ -7,7 +7,7 @@ import {environment} from "../../environments/environment";
 import {Observable, Subject} from "rxjs";
 import {error, log} from "util";
 import {tap} from "rxjs/operators";
-import {CollegueDto} from "../models/CollegueDto";
+
 const URL_BACKEND = environment.backendUrl;
 
 @Injectable({
@@ -50,7 +50,7 @@ export class DataService {
           }), withCredentials : true
       };
 
-         return this._http.get<Collegue>(URL_BACKEND.concat('/collegue/'.concat(matricule)), HttpOptions)
+         return this._http.get<Collegue>(URL_BACKEND.concat('/collegue/'.concat(matricule)), HttpOptions).pipe(tap(col => col.modifier = false))
              .pipe(
 
                  tap(col => this.action.next(col))

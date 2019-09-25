@@ -9,6 +9,7 @@ export class Collegue {
     email: string;
     dateDeNaissance: Date;
     photoUrl: string;
+    modifier: Boolean;
 
 
 }

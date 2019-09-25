@@ -1,7 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Collegue} from "./models/Collegue";
 
 import {DataService} from "./services/data.service";
+import {AuthentificationService} from "./services/authentification.service";
+import {Subscription} from "rxjs";
 
 @Component({
     selector: 'app-root',
@@ -10,12 +12,24 @@ import {DataService} from "./services/data.service";
 })
 
 
-export class AppComponent {
-    col: Collegue;
+export class AppComponent implements OnInit, OnDestroy{
 
-    constructor(private _data: DataService) {
+    actionSub: Subscription;
+    col: Collegue;
+    logged = false;
+    constructor(private _data: DataService, private _authentification: AuthentificationService) {
 
     }
+
+    ngOnInit(): void {
+        this.actionSub = this._authentification.actionObs.subscribe(authenticated => this.logged = authenticated)
+    }
+
+    ngOnDestroy(): void {
+        this.actionSub.unsubscribe();
+    }
+
+
 
 
 }
