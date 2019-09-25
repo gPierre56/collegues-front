@@ -1,0 +1,18 @@
+<div class = " mt-3">
+    <div class="col-3">
+    </div>
+    <div class="col-6">
+        <form class ="form-group align-items-center">
+            <h4 class="text-success">Authentification application collègues</h4>
+        <label class="font-weight-bold" for="login">Nom d'utilisateur : </label>
+            <input type="text" placeholder="Nom d'utilisateur" id = "login"  #login>
+            <label class="font-weight-bold" for="password">Mot de passe : </label>
+            <input type="text" placeholder="Mot de passe :" id = "password" #password>
+            <input class="btn-outline-success" type="submit" value="Envoyer" (click)="authentifier(login.value, password.value)">
+        </form>
+    </div>
+    <div class="col-3">
+    </div>
+
+
+</div>

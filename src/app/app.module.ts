@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { CollegueComponent } from './collegue/collegue.component';
 import { RechercheCollegueParNomComponent } from './recherche-collegue-par-nom/recherche-collegue-par-nom.component';
+import { AuthentificationComponentComponent } from './authentification-component/authentification-component.component';
+import { HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -14,14 +17,17 @@ import { RechercheCollegueParNomComponent } from './recherche-collegue-par-nom/r
 
       CollegueComponent,
 
-      RechercheCollegueParNomComponent
+      RechercheCollegueParNomComponent,
+
+      AuthentificationComponentComponent
+
 
 
   ],
-  imports: [
-    BrowserModule, NgbModule
+    imports: [
+        BrowserModule, NgbModule, HttpClientModule, FormsModule
 
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

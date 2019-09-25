@@ -5,26 +5,22 @@
                 <h4 class="text-success font-weight-bold">Recherche par nom :</h4>
             </div>
             <div class="col-4">
-                <input type="text" class="align-content-center mt-1">
+                <input type="text" class="align-content-center mt-1" placeholder="Nom de famille" #nom>
             </div>
             <div class="col-4">
-                <button class="btn-success mt-2" (click)="afficher()">Rechercher</button>
+                <button class="btn-success mt-2" (click)="rechercherParNom(nom.value)">Rechercher</button>
             </div>
         </div>
     </div>
 
 </div>
 
-<div class="row mt-2" *ngIf="affichage==true">
+<div class="row mt-2">
     <div class="col mt-5 ">
         <ul class="list-group">
-            <li class="list-group-item" *ngFor="let matricule of listeMatricules">{{matricule}}</li>
+            <li class="list-group-item" *ngFor="let matricule of tabMatricules"><a href = "#" (click)="afficherCollegueParMatricule(matricule)">{{matricule}}</a></li>
         </ul>
     </div>
-    <div class="col" *ngIf="affichage==true">
 
-        <img class="img-thumbnail rounded mx-auto"  src="../assets/images/risitas.jpg">
-
-    </div>
 </div>
 

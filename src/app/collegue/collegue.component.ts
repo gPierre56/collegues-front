@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Collegue} from "../models/Collegue";
-import {CollegueMock} from "../mock/collegue.mock";
+import {DataService} from "../services/data.service";
+import {Subscription} from "rxjs";
 
 
 @Component({
@@ -8,24 +9,34 @@ import {CollegueMock} from "../mock/collegue.mock";
   templateUrl: './collegue.component.html',
   styleUrls: ['./collegue.component.css']
 })
-export class CollegueComponent implements OnInit {
+export class CollegueComponent implements OnInit, OnDestroy {
 
+  actionSub: Subscription;
 
   @Input() col: Collegue;
 
-  constructor() {
+  constructor(private _data:DataService) {
 
   }
-  modifier() {
+  modifier: Boolean;
+
+  modifierCollegue() {
     console.log('Modification du collègue');
-    this.col.modifier = true;
+    this.modifier = true;
   }
 
   creer() {
     console.log('Création d\'un nouveau collègue');
   }
 
+
+
   ngOnInit() {
+    this.actionSub = this._data.actionObs.subscribe(col => this.col = col);
+  }
+
+  ngOnDestroy(): void {
+    this.actionSub.unsubscribe();
   }
 
 }
