@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {environment} from "../../environments/environment";
 import {AuthentificationService} from "../services/authentification.service";
-import {HttpClient} from "@angular/common/http";
-import {NgForm} from "@angular/forms";
 
-const URL_BACKEND = environment.backendUrl;
+
+
 
 @Component({
   selector: 'app-authentification-component',
