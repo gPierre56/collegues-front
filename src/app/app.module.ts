@@ -3,12 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {NgbDateAdapter, NgbDateNativeAdapter, NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { CollegueComponent } from './collegue/collegue.component';
 import { RechercheCollegueParNomComponent } from './recherche-collegue-par-nom/recherche-collegue-par-nom.component';
 import { AuthentificationComponentComponent } from './authentification-component/authentification-component.component';
 import { HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+
 
 
 @NgModule({
@@ -23,12 +24,14 @@ import {FormsModule} from "@angular/forms";
 
 
 
+
+
   ],
     imports: [
         BrowserModule, NgbModule, HttpClientModule, FormsModule
 
     ],
-  providers: [],
+  providers: [{provide: NgbDateAdapter, useClass: NgbDateNativeAdapter}],
   bootstrap: [AppComponent]
 })
 
