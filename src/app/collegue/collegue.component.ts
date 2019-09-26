@@ -6,6 +6,7 @@ import {ModifierDto} from "../dto/modifierDto";
 import {ModifierCollegueService} from "../services/modifier-collegue.service";
 import {CreerCollegueService} from "../services/creer-collegue.service";
 import {CreerDto} from "../dto/creerDto";
+import {Form} from "@angular/forms";
 
 
 @Component({
@@ -42,7 +43,9 @@ export class CollegueComponent implements OnInit, OnDestroy {
     validerModification(): void {
         this.collegueModifier.matricule = this.col.matricule;
 
-        this._modification.modifierCollegue(this.collegueModifier).subscribe();
+        this._modification.modifierCollegue(this.collegueModifier).subscribe(() => {
+            this.collegueModifier = new ModifierDto();
+        });
         this.modifier = false;
     }
 
@@ -54,7 +57,10 @@ export class CollegueComponent implements OnInit, OnDestroy {
     }
 
     validerCreation() :void {
-        this._creation.creerCollegue(this.collegueCreer).subscribe();
+        this._creation.creerCollegue(this.collegueCreer).subscribe(() => {
+            this.collegueCreer = new CreerDto();
+        });
+
         this.creation = false;
     }
 

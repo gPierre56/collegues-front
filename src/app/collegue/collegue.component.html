@@ -31,7 +31,7 @@
     </div>
 </div>
 <div>
-        <form (ngSubmit)="validerCreation()">
+        <form (ngSubmit)="validerCreation()" #form = "ngForm">
             <div *ngIf="creation && !modifier">
                 <div class="row">
                     <div class=col-6>Nom :</div>
@@ -55,7 +55,7 @@
                 <div class="row">
                     <div class=col-6>Date de naissance :</div>
                     <div class=col-6>
-                        <input (click)="d.toggle()" type="text" ngbDatepicker #d="ngbDatepicker" [(ngModel)]="collegueCreer.dateDeNaissance"
+                        <input (click)="d.toggle()" type="text" ngbDatepicker #d="ngbDatepicker" [minDate]="{year:1980, month:1, day:1}" [(ngModel)]="collegueCreer.dateDeNaissance"
                                #dateDeNaissance="ngModel" name="dateDeNaissance" required>
                         <p class="text-danger" *ngIf="dateDeNaissance.dirty && dateDeNaissance.invalid">
                             La date de naissance est obligatoire.
@@ -84,7 +84,7 @@
                 </div>
 
             </div>
-            <button type="submit" *ngIf="creation">Valider
+            <button type="submit" *ngIf="creation" >Valider
             </button>
             <button *ngIf="creation" (click)="annulerCreation()">Annuler
             </button>
