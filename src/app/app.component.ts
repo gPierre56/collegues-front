@@ -15,9 +15,8 @@ import {Subscription} from "rxjs";
 export class AppComponent implements OnInit, OnDestroy{
 
     actionSub: Subscription;
-    col: Collegue;
     logged = false;
-    constructor(private _data: DataService, private _authentification: AuthentificationService) {
+    constructor(private _authentification: AuthentificationService) {
 
     }
 
