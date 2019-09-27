@@ -11,6 +11,12 @@ import { HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { UrlValidatorDirective } from './validators/url-validator.directive';
 import { EmailValidatorDirective } from './validators/email-validator.directive';
+import { MenuComponent } from './menu/menu.component';
+import { GallerieComponent } from './gallerie/gallerie.component';
+import { AccueilComponent } from './accueil/accueil.component';
+import { AProposComponent } from './a-propos/a-propos.component';
+import {RouterModule} from "@angular/router";
+import {ROUTES} from "./app.routes";
 
 
 
@@ -26,7 +32,15 @@ import { EmailValidatorDirective } from './validators/email-validator.directive'
 
       UrlValidatorDirective,
 
-      EmailValidatorDirective
+      EmailValidatorDirective,
+
+      MenuComponent,
+
+      GallerieComponent,
+
+      AccueilComponent,
+
+      AProposComponent
 
 
 
@@ -34,7 +48,7 @@ import { EmailValidatorDirective } from './validators/email-validator.directive'
 
   ],
   imports: [
-    BrowserModule, NgbModule, HttpClientModule, FormsModule, ReactiveFormsModule
+    BrowserModule, NgbModule, HttpClientModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(ROUTES)
 
   ],
   providers: [{provide: NgbDateAdapter, useClass: NgbDateNativeAdapter}],

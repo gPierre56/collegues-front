@@ -70,6 +70,7 @@
                         <p class="text-danger" *ngIf="email.dirty && email.errors.required">
                             L'adresse email est obligatoire.
                         </p>
+                        {{email.errors | json}}
                         <p class="text-danger" *ngIf="email.dirty && email.errors.emailInvalide">
                             L'adresse email existe déjà.
                         </p>

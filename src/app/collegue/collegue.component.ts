@@ -6,8 +6,6 @@ import {ModifierDto} from "../dto/modifierDto";
 import {ModifierCollegueService} from "../services/modifier-collegue.service";
 import {CreerCollegueService} from "../services/creer-collegue.service";
 import {CreerDto} from "../dto/creerDto";
-import {UrlValidatorDirective} from "../validators/url-validator.directive";
-import {FormBuilder, Validators} from "@angular/forms";
 
 
 @Component({
@@ -28,9 +26,6 @@ export class CollegueComponent implements OnInit, OnDestroy {
     constructor(private _data: DataService, private _modification: ModifierCollegueService, private  _creation: CreerCollegueService) {
 
     }
-
-
-
 
 
     modifierCollegue() {
@@ -62,11 +57,11 @@ export class CollegueComponent implements OnInit, OnDestroy {
 
     validerCreation(): void {
 
-            this._creation.creerCollegue(this.collegueCreer).subscribe(() => {
-                    this.collegueCreer = new CreerDto();
-                    this.creation = false;
-                }
-            )
+        this._creation.creerCollegue(this.collegueCreer).subscribe(() => {
+                this.collegueCreer = new CreerDto();
+                this.creation = false;
+            }
+        )
 
 
     }
@@ -79,7 +74,12 @@ export class CollegueComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.modifier = false;
         this.creation = false;
-        this.actionSub = this._data.actionObs.subscribe(col => this.col = col);
+        this.actionSub = this._data.actionObs.subscribe(col => {
+            this.col = col;
+            this.modifier = false;
+            this.creation = false;
+
+        });
     }
 
     ngOnDestroy(): void {
