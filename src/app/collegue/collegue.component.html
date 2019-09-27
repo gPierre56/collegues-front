@@ -31,7 +31,7 @@
     </div>
 </div>
 <div>
-        <form (ngSubmit)="validerCreation()" #form = "ngForm">
+        <form (ngSubmit)="validerCreation()" [ngFormOptions]="{updateOn: 'blur'}"  >
             <div *ngIf="creation && !modifier">
                 <div class="row">
                     <div class=col-6>Nom :</div>
@@ -65,18 +65,24 @@
                 <div class="row">
                     <div class=col-6>Email :</div>
                     <div class=col-6>
-                        <input type="text" [(ngModel)]="collegueCreer.email" #email="ngModel" name="email" required>
-                        <p class="text-danger" *ngIf="email.dirty && email.invalid">
+
+                        <input appEmailValidator type="text" [(ngModel)]="collegueCreer.email" #email="ngModel" name="email" required>
+                        <p class="text-danger" *ngIf="email.dirty && email.errors.required">
                             L'adresse email est obligatoire.
+                        </p>
+                        <p class="text-danger" *ngIf="email.dirty && email.errors.emailInvalide">
+                            L'adresse email existe déjà.
                         </p>
                     </div>
                     <div class="row">
                         <div class=col-6>Adresse de la photo :</div>
                         <div class=col-6>
-                            <input type="text" [(ngModel)]="collegueCreer.photoUrl" #photo="ngModel" name="photoUrl"
+                            <input appUrlValidator type="text" [(ngModel)]="collegueCreer.photoUrl" #photo="ngModel" name="photoUrl"
                                    required
                                    minlength="7">
-                            <p class="text-danger" *ngIf="photo.dirty && photo.invalid">
+
+                            <p class="text-danger" *ngIf="photo.dirty && photo.errors.urlInvalide">L'url doit commencer par http</p>
+                            <p class="text-danger" *ngIf="photo.dirty && photo.errors.required">
                                 L'url de la photo est obligatoire et doit comporter au moins 7 caractères.
                             </p>
                         </div>
@@ -90,7 +96,7 @@
             </button>
         </form>
 </div>
-        <form (ngSubmit)="validerModification()">
+        <form (ngSubmit)="validerModification()" [ngFormOptions]="{updateOn: 'blur'}">
             <div *ngIf="col &&modifier && !creation">
 
                 <div class="row">
@@ -104,9 +110,10 @@
                     <div class="row">
                         <div class=col-6>Adresse de la photo :</div>
                         <div class=col-6>
-                            <input type="text" [(ngModel)]="collegueModifier.photoUrl" #photo="ngModel" name="photoUrl"
+                            <input appUrlValidator type="text" [(ngModel)]="collegueModifier.photoUrl" #photo="ngModel" name="photoUrl"
                                    required
                                    minlength="7">
+                            <p class="text-danger" *ngIf="photo.dirty && photo.errors.urlInvalide">L'url doit commencer par http</p>
                             <p class="text-danger" *ngIf="photo.dirty && photo.invalid">
                                 L'url de la photo est obligatoire et doit comporter au moins 7 caractères.
                             </p>

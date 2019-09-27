@@ -8,7 +8,9 @@ import { CollegueComponent } from './collegue/collegue.component';
 import { RechercheCollegueParNomComponent } from './recherche-collegue-par-nom/recherche-collegue-par-nom.component';
 import { AuthentificationComponentComponent } from './authentification-component/authentification-component.component';
 import { HttpClientModule} from "@angular/common/http";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { UrlValidatorDirective } from './validators/url-validator.directive';
+import { EmailValidatorDirective } from './validators/email-validator.directive';
 
 
 
@@ -20,17 +22,21 @@ import {FormsModule} from "@angular/forms";
 
       RechercheCollegueParNomComponent,
 
-      AuthentificationComponentComponent
+      AuthentificationComponentComponent,
+
+      UrlValidatorDirective,
+
+      EmailValidatorDirective
 
 
 
 
 
   ],
-    imports: [
-        BrowserModule, NgbModule, HttpClientModule, FormsModule
+  imports: [
+    BrowserModule, NgbModule, HttpClientModule, FormsModule, ReactiveFormsModule
 
-    ],
+  ],
   providers: [{provide: NgbDateAdapter, useClass: NgbDateNativeAdapter}],
   bootstrap: [AppComponent]
 })
