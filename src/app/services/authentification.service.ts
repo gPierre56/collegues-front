@@ -28,7 +28,8 @@ export class AuthentificationService {
 
     const HttpOption = {
       headers: new HttpHeaders({
-        "Content-type" : "application/json"}), withCredentials : true,
+        "Content-type" : "application/json"}),
+      withCredentials : true,
     };
 
     return this._http.get(environment.backendUrl.concat('/auth/user'), HttpOption);
