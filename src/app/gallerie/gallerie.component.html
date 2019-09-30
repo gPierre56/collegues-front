@@ -1,5 +1,5 @@
 
 <div class="row">
-    <div class="col-4" *ngFor="let photo of listePhotos"><a href="gallerie/{{photo.matricule}}"> <img [src]="photo.photo"></a></div>
+    <div class="col-4" *ngFor="let photo of listePhotos"><a (click)="afficherDetailsCollegue(photo.matricule)" > <img [src]="photo.photo"></a></div>
 
 </div>
