@@ -12,7 +12,7 @@ export class ConnexionGuardService implements CanActivate{
   constructor(private router: Router, private service: AuthentificationService) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.service.isLogged().pipe(map(() => {return true;}, catchError(() => {return of (this.router.parseUrl('/authentification'))})));
+    return this.service.isLogged().pipe(map(() => {return true;}, catchError(() => {return of (this.router.parseUrl('authentification'))})));
 
   }
 }

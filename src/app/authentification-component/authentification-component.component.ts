@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthentificationService} from "../services/authentification.service";
+import {Router} from "@angular/router";
 
 
 
@@ -15,14 +16,14 @@ export class AuthentificationComponentComponent implements OnInit {
 
 
 
-  constructor(private authService: AuthentificationService) {
+  constructor(private authService: AuthentificationService, private router: Router) {
 
   }
 
   authentifier(login: string, password: string) {
 
       return this.authService.authentifier(login, password).subscribe((data : any) => {
-          console.log(data);
+          this.router.navigate(['/accueil']);
       }, (error: any) => {
           console.log('erreur', error);
       });
