@@ -13,6 +13,7 @@ export class AuthentificationService {
 
   private action = new Subject<boolean>();
 
+
   get actionObs() {
     return this.action.asObservable();
   }
@@ -22,6 +23,17 @@ export class AuthentificationService {
 
 
   }
+
+  isLogged() : Observable<any> {
+
+    const HttpOption = {
+      headers: new HttpHeaders({
+        "Content-type" : "application/json"}), withCredentials : true,
+    };
+
+    return this._http.get(environment.backendUrl.concat('/auth/user'), HttpOption);
+  }
+
   authentifier(login: string, password: string) : Observable<any>  {
 
     const HttpOption = {

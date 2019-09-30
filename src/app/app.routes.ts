@@ -6,14 +6,18 @@ import {AuthentificationComponentComponent} from "./authentification-component/a
 import {CollegueComponent} from "./collegue/collegue.component";
 import {RechercheCollegueParNomComponent} from "./recherche-collegue-par-nom/recherche-collegue-par-nom.component";
 import {DetailsCollegueComponent} from "./details-collegue/details-collegue.component";
+import {ConnexionGuardService} from "./services/connexion-guard.service";
 
 export const ROUTES: Routes = [
+    { path: 'authentification', component: AuthentificationComponentComponent},
+
+    { path : '', canActivate: [ConnexionGuardService], children: [
     { path: 'accueil', component: AccueilComponent},
     { path: 'gallerie', component: GallerieComponent},
     { path: 'apropos', component: AProposComponent},
-    { path: 'authentification', component: AuthentificationComponentComponent},
+
     { path: 'collegue', component: CollegueComponent},
     { path: 'recherche_collegue', component: RechercheCollegueParNomComponent},
     { path: 'gallerie/:matricule', component: DetailsCollegueComponent},
-    {path: '', pathMatch: 'full', redirectTo: 'accueil'}
+    {path: '', pathMatch: 'full', redirectTo: 'accueil'}]}
 ];

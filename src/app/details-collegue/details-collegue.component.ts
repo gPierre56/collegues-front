@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {DataService} from "../services/data.service";
 import {Collegue} from "../models/Collegue";
+import {flatMap} from "rxjs/operators";
 
 @Component({
     selector: 'app-details-collegue',
@@ -17,15 +18,14 @@ export class DetailsCollegueComponent implements OnInit {
 
     ngOnInit() {
 
-        this.routaActive.paramMap.subscribe((params: ParamMap) => {
-            const matriculeRecupere = params.get('matricule');
-            this._service.recupererCollegueParMatricule(matriculeRecupere).subscribe((col) => {
+        this.routaActive.paramMap.pipe(
+            flatMap((params: ParamMap) => {
+                const matriculeRecupere = params.get('matricule');
+                return this._service.recupererCollegueParMatricule(matriculeRecupere);}
+            )).subscribe((col) => {
               this.col = col;
             }, () => {alert('Erreur lors de la récupération du collègue avec ce matricule.')});
 
-        }, () => {
-          alert('Erreur lors de la récupération du matricule.')
-        })
     }
 
 }
