@@ -21,4 +21,6 @@ export class GallerieComponent implements OnInit {
     })
   }
 
+
+
 }

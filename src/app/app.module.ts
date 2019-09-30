@@ -17,6 +17,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { AProposComponent } from './a-propos/a-propos.component';
 import {RouterModule} from "@angular/router";
 import {ROUTES} from "./app.routes";
+import { DetailsCollegueComponent } from './details-collegue/details-collegue.component';
 
 
 
@@ -40,7 +41,9 @@ import {ROUTES} from "./app.routes";
 
       AccueilComponent,
 
-      AProposComponent
+      AProposComponent,
+
+      DetailsCollegueComponent
 
 
 

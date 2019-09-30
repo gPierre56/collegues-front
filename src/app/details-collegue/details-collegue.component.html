@@ -1,0 +1,63 @@
+<div class="row">
+    <div class="col text-center">
+        <img [src]=col.photoUrl>
+
+    </div>
+</div>
+
+<div class="row  mt-4">
+    <div class="col text-center">
+        <p class="font-weight-bold">Matricule :</p>
+
+    </div>
+    <div class="col text-center">
+        <p>{{col.matricule}}</p>
+
+    </div>
+
+</div>
+<div class="row  mt-1">
+    <div class="col text-center">
+        <p class="font-weight-bold">Nom :</p>
+
+    </div>
+    <div class="col text-center">
+        <p>{{col.nom}}</p>
+
+    </div>
+
+
+</div>
+<div class="row  mt-1">
+    <div class="col text-center">
+        <p class="font-weight-bold">Prénom :</p>
+
+    </div>
+    <div class="col text-center">
+        <p>{{col.prenom}}</p>
+
+    </div>
+
+</div>
+<div class="row  mt-1">
+    <div class="col text-center">
+        <p class="font-weight-bold">Date de naissance :</p>
+
+    </div>
+    <div class="col text-center">
+        <p>{{col.dateDeNaissance | date:'dd/MM/yyyy'}}</p>
+
+    </div>
+
+</div>
+<div class="row  mt-1">
+    <div class="col text-center">
+        <p class="font-weight-bold">Email :</p>
+
+    </div>
+    <div class="col text-center">
+        <p>{{col.email}}</p>
+
+    </div>
+
+</div>
