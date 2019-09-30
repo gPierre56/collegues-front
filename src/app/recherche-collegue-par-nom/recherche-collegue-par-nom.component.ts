@@ -31,10 +31,11 @@ erreur: Boolean;
     //this._data.recupererCollegueParMatricule(matricule).subscribe((collegue) => this.col = collegue);
   //}
 
-  afficherCollegueParMatricule(matricule: string) :void {
+  afficherCollegueParMatricule(matricule: string) :boolean {
     this._data.recupererCollegueParMatricule(matricule).subscribe(() =>{}, () => {
       alert('Erreur lors de la récupération des informations du collègue.');
     });
+    return false;
   }
 
 
