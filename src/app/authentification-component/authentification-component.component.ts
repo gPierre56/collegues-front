@@ -20,8 +20,7 @@ export class AuthentificationComponentComponent implements OnInit {
   }
 
   authentifier(login: string, password: string) {
-      console.log(login);
-      console.log(password);
+
       return this.authService.authentifier(login, password).subscribe((data : any) => {
           console.log(data);
       }, (error: any) => {
