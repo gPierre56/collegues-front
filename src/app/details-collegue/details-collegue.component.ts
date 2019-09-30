@@ -11,7 +11,7 @@ import {flatMap} from "rxjs/operators";
 })
 export class DetailsCollegueComponent implements OnInit {
 
-    private col: Collegue;
+    public col: Collegue;
 
     constructor(private routaActive: ActivatedRoute, private _service: DataService) {
     }
